@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SofaFurniturestate : MonoBehaviour
+public class DrawerFurniturestate : MonoBehaviour
 {
     public enum Furniturestatus { Clean, Dirty }
     public Furniturestatus status = Furniturestatus.Clean;
