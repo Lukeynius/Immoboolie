@@ -20,13 +20,21 @@ public class FurnitureState : MonoBehaviour
 
     void OnEnable()
     {
-        GameManager.instance.furnitures.Add(this);
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.furnitures.Add(this);
+        }
     }
+
 
     void OnDisable()
     {
-        GameManager.instance.furnitures.Remove(this);
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.furnitures.Remove(this);
+        }
     }
+
 
     void Start()
     {

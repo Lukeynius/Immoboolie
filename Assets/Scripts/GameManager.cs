@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         initTimerSeconds = timerSeconds;
+        furnitures = new List<FurnitureState>();
     }
+
 
     void Update()
     {

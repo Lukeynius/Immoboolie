@@ -1847,7 +1847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 3
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 703091532}
 --- !u!43 &151860579
@@ -4996,7 +4996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7820001
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8234,7 +8234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 2
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 1407115971}
 --- !u!1 &534208395
@@ -8618,7 +8618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.852
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9273,7 +9273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 3
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 2064655615}
 --- !u!1 &567889595
@@ -17754,7 +17754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674a6d9dc5be6c643a1a93f133bc4dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  timerSeconds: 300
+  timerSeconds: 120
   dirtyFurnitureFearImpact: 0.005
   cleaningFurnitureFearImpact: 0.3
   _fearLevel: 0
@@ -18758,7 +18758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.283
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20334,7 +20334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 2
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 337790516}
 --- !u!43 &956282691
@@ -22612,7 +22612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 4
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 45421537}
 --- !u!43 &1051928494
@@ -32463,7 +32463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 2
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 884999210}
 --- !u!43 &1207480858
@@ -34621,11 +34621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.61800003
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2670001
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37181,11 +37181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.681
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39584,11 +39584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6155
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2670001
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39874,6 +39874,10 @@ PrefabInstance:
     - target: {fileID: 6370259704248434851, guid: c8323d6d59c7c4e46ba690e538d80967, type: 3}
       propertyPath: cleaningEffectPosition
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370259704248434851, guid: c8323d6d59c7c4e46ba690e538d80967, type: 3}
+      propertyPath: fearIncreasementFactor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41523,13 +41527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8285721590080c649b6aea599f8825a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 3
+  moveSpeed: 2
   interactDistance: 1.2
   searchRadius: 20
   thinkDelay: 1.5
   cooldownAfterDirty: 5
-  fearRadius: 5
-  fearIncreasement: 0.1
+  fearRadius: 4
+  fearIncreasement: 0.08
 --- !u!1 &1753746393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6485768808057364037, guid: 6fcd30bdbae1ac245917ab3a0f196aeb, type: 3}
@@ -41961,11 +41965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2189999
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.015000343
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -43657,11 +43661,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.607
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44430,7 +44434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
-  fearIncreasementFactor: 1
+  fearIncreasementFactor: 2
   cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 1974628651}
 --- !u!65 &1991622066
@@ -46560,7 +46564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46635,11 +46639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.031999588
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47627,6 +47631,10 @@ PrefabInstance:
     - target: {fileID: 4864442429006979625, guid: c8323d6d59c7c4e46ba690e538d80967, type: 3}
       propertyPath: m_Name
       value: BedroomCloset
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370259704248434851, guid: c8323d6d59c7c4e46ba690e538d80967, type: 3}
+      propertyPath: fearIncreasementFactor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
