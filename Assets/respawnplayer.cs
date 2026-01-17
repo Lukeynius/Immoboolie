@@ -51,7 +51,7 @@ namespace StarterAssets
             }
         }
 
-        private void Respawn()
+        public void Respawn()
 {
     // Disable the CharacterController so we can manually adjust position
     if (_characterController != null)

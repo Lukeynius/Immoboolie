@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FurnitureState
   currentState: 0
+  fearIncreasementFactor: 1
+  cleanFearDecreasementFactor: 1
   cleaningEffect: {fileID: 6801038760653771557}
 --- !u!1001 &2655285027113940638
 PrefabInstance:
@@ -96,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.586
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 2528689080303540878, guid: ea1dfdd66e6cc2f4c896caee10f6a480, type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,7 +8,6 @@ public class PlayerCleanFurniture : MonoBehaviour
 
     [SerializeField] float holdTimer;
 
-    [SerializeField] Transform playerTransform;
     [SerializeField] float playerInteractionRadius = 1;
     [SerializeField] InputActionReference interactInputRef;
     [SerializeField] LayerMask interactLayerMask;
@@ -25,7 +24,7 @@ public class PlayerCleanFurniture : MonoBehaviour
 
         var playerOverlapColliders = new Collider[10];
         Physics.OverlapSphereNonAlloc(
-            playerTransform.position,
+            transform.position,
             playerInteractionRadius,
             playerOverlapColliders,
             interactLayerMask
@@ -36,7 +35,7 @@ public class PlayerCleanFurniture : MonoBehaviour
             .Select(x => x.GetComponentInParent<FurnitureState>())
             .Where(x => x)
             .Where(x => x.currentState == FurnitureState.State.Dirty)
-            .OrderBy(x => (x.transform.position - playerTransform.position).sqrMagnitude)
+            .OrderBy(x => (x.transform.position - transform.position).sqrMagnitude)
             .FirstOrDefault();
 
         if (!furniture)
@@ -61,6 +60,6 @@ public class PlayerCleanFurniture : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(playerTransform.position, playerInteractionRadius);
+        Gizmos.DrawWireSphere(transform.position, playerInteractionRadius);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using StarterAssets;
 
 public class GhostFurnitureAI : MonoBehaviour
 {
@@ -9,8 +10,46 @@ public class GhostFurnitureAI : MonoBehaviour
     [SerializeField] float searchRadius = 20;
     [SerializeField] float thinkDelay = 1.5f;
     [SerializeField] float cooldownAfterDirty = 5;
+    [SerializeField] float fearRadius = 5;
+    [SerializeField] float fearIncreasement = .1f;
 
-    IEnumerator Start()
+    ThirdPersonController player;
+
+    Vector3 initPosition;
+
+    void Awake()
+    {
+        player = FindFirstObjectByType<ThirdPersonController>();
+        initPosition = transform.position;
+    }
+
+    void Start()
+    {
+        StartCoroutine(UpdateRoutine());
+    }
+
+    void Update()
+    {
+        if ((transform.position - player.transform.position).sqrMagnitude < fearRadius * fearRadius)
+        {
+            GameManager.instance.fearLevel += fearIncreasement * Time.deltaTime;
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, fearRadius);
+    }
+
+    public void ResetGhost()
+    {
+        StopAllCoroutines();
+        transform.position = initPosition;
+        Start();
+    }
+
+    IEnumerator UpdateRoutine()
     {
         yield return new WaitForSeconds(2); // startdelay
 
@@ -41,7 +80,7 @@ public class GhostFurnitureAI : MonoBehaviour
     {
         var layer = LayerMask.NameToLayer("Interactable");
 
-        var cleanFurniture = FindObjectsByType<FurnitureState>(FindObjectsSortMode.None)
+        var cleanFurniture = GameManager.instance.furnitures
             .Where(x => x.gameObject.layer == layer)
             .Where(f => f.currentState == FurnitureState.State.Clean)
             .Where(f => (transform.position - f.transform.position).sqrMagnitude < searchRadius * searchRadius)

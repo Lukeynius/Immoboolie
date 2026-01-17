@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FurnitureState : MonoBehaviour
@@ -9,11 +10,23 @@ public class FurnitureState : MonoBehaviour
     }
 
     public State currentState = State.Clean;
+    public float fearIncreasementFactor = 1;
+    public float cleanFearDecreasementFactor = 1;
 
     [Header("Visuals")]
     public ParticleSystem cleaningEffect;
 
     float cleaning;
+
+    void OnEnable()
+    {
+        GameManager.instance.furnitures.Add(this);
+    }
+
+    void OnDisable()
+    {
+        GameManager.instance.furnitures.Remove(this);
+    }
 
     void Start()
     {
@@ -48,6 +61,7 @@ public class FurnitureState : MonoBehaviour
     {
         if (currentState != State.Clean)
         {
+            GameManager.instance.fearLevel -= GameManager.instance.cleaningFurnitureFearImpact * cleanFearDecreasementFactor;
             currentState = State.Clean;
             UpdateVisual();
         }
