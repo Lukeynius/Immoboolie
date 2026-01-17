@@ -1,45 +1,66 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerCleanFurniture : MonoBehaviour
 {
-    public float cleanDistance = 2.5f;
-    public float cleanTime = 2f;
+    public float cleanTime = 2;
 
-    private float holdTimer;
+    [SerializeField] float holdTimer;
+
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float playerInteractionRadius = 1;
+    [SerializeField] InputActionReference interactInputRef;
+    [SerializeField] LayerMask interactLayerMask;
 
     void Update()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, cleanDistance))
+        if (interactInputRef.action.ReadValue<float>() == 0)
         {
-            FurnitureState furniture =
-                hit.collider.GetComponentInParent<FurnitureState>();
-
-            if (furniture != null &&
-                furniture.currentState == FurnitureState.State.Dirty)
-            {
-                if (Keyboard.current != null &&
-                    Keyboard.current.eKey.isPressed)
-                {
-                    holdTimer += Time.deltaTime;
-
-                    if (holdTimer >= cleanTime)
-                    {
-                        furniture.SetClean();
-                        holdTimer = 0f;
-                    }
-                }
-                else
-                {
-                    holdTimer = 0f;
-                }
-
-                return;
-            }
+            holdTimer = 0;
+            return;
         }
 
-        holdTimer = 0f;
+        var ray = new Ray(transform.position, transform.forward);
+
+        var playerOverlapColliders = new Collider[10];
+        Physics.OverlapSphereNonAlloc(
+            playerTransform.position,
+            playerInteractionRadius,
+            playerOverlapColliders,
+            interactLayerMask
+        );
+
+        var furniture = playerOverlapColliders
+            .Where(x => x)
+            .Select(x => x.GetComponentInParent<FurnitureState>())
+            .Where(x => x)
+            .Where(x => x.currentState == FurnitureState.State.Dirty)
+            .OrderBy(x => (x.transform.position - playerTransform.position).sqrMagnitude)
+            .FirstOrDefault();
+
+        if (!furniture)
+        {
+            holdTimer = 0;
+            return;
+        }
+
+        holdTimer += Time.deltaTime;
+
+        if (holdTimer >= cleanTime)
+        {
+            holdTimer = 0;
+            furniture.SetClean();
+        }
+        else
+        {
+            furniture.SetCleaning();
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(playerTransform.position, playerInteractionRadius);
     }
 }

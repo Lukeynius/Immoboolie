@@ -4,73 +4,56 @@ using System.Linq;
 
 public class GhostFurnitureAI : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float interactDistance = 1.2f;
-    public float waitAfterDirty = 2f;
-    public float searchRadius = 20f;
-    public float thinkDelay = 1.5f;
-    public float cooldownAfterDirty = 5f;
+    [SerializeField] float moveSpeed = 2;
+    [SerializeField] float interactDistance = 1.2f;
+    [SerializeField] float searchRadius = 20;
+    [SerializeField] float thinkDelay = 1.5f;
+    [SerializeField] float cooldownAfterDirty = 5;
 
-
-    private FurnitureState targetFurniture;
-
-    void Start()
+    IEnumerator Start()
     {
-        StartCoroutine(GhostLoop());
-    }
-
-    IEnumerator GhostLoop()
-    {
-        yield return new WaitForSeconds(2f); // startdelay
+        yield return new WaitForSeconds(2); // startdelay
 
         while (true)
         {
             yield return new WaitForSeconds(thinkDelay);
 
-            FindNewTarget();
-
-            if (targetFurniture != null)
+            if (!TryGetRandomTarget(out var furnitureState))
             {
-                while (Vector3.Distance(transform.position,
-                    targetFurniture.transform.position) > interactDistance)
-                {
-                    Vector3 dir =
-                        (targetFurniture.transform.position - transform.position).normalized;
-                    transform.position += dir * moveSpeed * Time.deltaTime;
-                    yield return null;
-                }
-
-                targetFurniture.SetDirty();
-
-                yield return new WaitForSeconds(cooldownAfterDirty);
+                yield return new WaitForSeconds(2);
+                continue;
             }
-            else
+
+            while (Vector3.Distance(transform.position, furnitureState.transform.position) > interactDistance)
             {
-                yield return new WaitForSeconds(2f);
+                Vector3 dir = (furnitureState.transform.position - transform.position).normalized;
+                transform.position += dir * (moveSpeed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
             }
+
+            furnitureState.SetDirty();
+
+            yield return new WaitForSeconds(cooldownAfterDirty);
         }
     }
 
-
-    void FindNewTarget()
+    bool TryGetRandomTarget(out FurnitureState furniture)
     {
-        FurnitureState[] allFurniture =
-            Object.FindObjectsByType<FurnitureState>(FindObjectsSortMode.None);
+        var layer = LayerMask.NameToLayer("Interactable");
 
-
-        var cleanFurniture = allFurniture
+        var cleanFurniture = FindObjectsByType<FurnitureState>(FindObjectsSortMode.None)
+            .Where(x => x.gameObject.layer == layer)
             .Where(f => f.currentState == FurnitureState.State.Clean)
-            .Where(f => Vector3.Distance(transform.position, f.transform.position) < searchRadius)
+            .Where(f => (transform.position - f.transform.position).sqrMagnitude < searchRadius * searchRadius)
             .ToArray();
 
         if (cleanFurniture.Length > 0)
         {
-            targetFurniture =
-                cleanFurniture[Random.Range(0, cleanFurniture.Length)];
+            furniture = cleanFurniture[Random.Range(0, cleanFurniture.Length)];
+            return true;
         }
-        else
-        {
-            targetFurniture = null;
-        }
+
+        furniture = null;
+        return false;
     }
 }
